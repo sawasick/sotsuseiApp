@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw
 import random
 
 # ベタ画像作成, 引数は(モード、サイズ、塗りつぶす色)
-img = Image.new('RGB', (500, 500), (255, 255, 255))
+img = Image.new('RGBA', (500, 500))
 draw = ImageDraw.Draw(img)
 
 # 1ピクセルの点を描画
@@ -15,7 +15,7 @@ for i in range(500):
 img.save('draw.png', quality=95)
 
 # ヒートマップのイメージ
-img2 = Image.new('RGB', (500, 500), (255, 255, 255))
+img2 = Image.new('RGBA', (500, 500))
 draw2 = ImageDraw.Draw(img2)
 for i in range(100):
     for j in range(100):
