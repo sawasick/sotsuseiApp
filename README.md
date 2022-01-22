@@ -21,3 +21,9 @@ https://chromedriver.chromium.org/downloads
 ### 描画（Pillow）
 参考サイト
 - https://note.nkmk.me/python-pillow-imagedraw/
+
+---
+### 画像合成（Pillow）
+参考サイト
+- https://qiita.com/iso12800jp/items/a74852ebfd3041065aeb
+- https://yu-nix.com/blog/2020/9/27/python-pillow-image-blend/
