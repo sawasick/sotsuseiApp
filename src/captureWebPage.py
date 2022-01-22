@@ -19,8 +19,10 @@ driver.get(URL)
 # 暗黙的に指定時間待つ（秒）→ajaxなどの動的にページを表示するやつが表示し終わるのを待つため
 driver.implicitly_wait(10)
 
+driver.maximize_window()
 # ページサイズ取得
-w = driver.execute_script("return document.body.scrollWidth;")
+w = driver.execute_script("return document.body.scrollWidth;") + 60
+# w = data[2][0] →csvデータの幅で取得
 h = driver.execute_script("return document.body.scrollHeight;")
 print(w,h)
 
