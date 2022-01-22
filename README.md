@@ -16,3 +16,8 @@ https://chromedriver.chromium.org/downloads
 ### 画像圧縮（Pillow）
 参考サイト
 - https://create-it-myself.com/know-how/compress-png-and-jpeg-images-in-python/
+
+---
+### 描画（Pillow）
+参考サイト
+- https://note.nkmk.me/python-pillow-imagedraw/
