@@ -19,6 +19,7 @@ URL,
 閲覧時間,
 posX,posY,
 ...
+EOF
 
 このままだとカンマの後に空文字列が入るので行の末尾の要素を削除する処理をする→row.pop(-1)
 '''
@@ -27,9 +28,12 @@ def OpenCsv(arg):
     with open(filename, encoding='utf8', newline='') as f:
         csvreader = csv.reader(f)
         for row in csvreader:
-            row.pop(-1) # 上記のcsvの扱い方参照
+            if  row[0] == 'EOF':
+                break
+            else:
+                row.pop(-1) # 上記のcsvの扱い方参照
+                data.append(row)
             # print(row)
-            data.append(row)
             # for d in row:
                 # print(d)
         # print(data)
@@ -42,7 +46,7 @@ def OpenCsv(arg):
 
 # filename = './test.csv'
 args = sys.argv
-print(len(args))
+# print(len(args))
 if len(args) == 1:
     print('引数なし')
 elif len(args) == 2:
