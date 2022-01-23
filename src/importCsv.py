@@ -9,8 +9,6 @@ import sys
 # csvモジュールを使ってCSVファイルから1行ずつ読み込む
 import csv
 
-data = [] # csvデータを格納する配列
-
 '''
 読み込むcsvは下記の形式
 URL,
@@ -24,6 +22,9 @@ EOF
 このままだとカンマの後に空文字列が入るので行の末尾の要素を削除する処理をする→row.pop(-1)
 '''
 def OpenCsv(arg):
+    print('OpenCsv実行中')
+
+    data = [] # csvデータを格納する配列
     filename =  arg
     with open(filename, encoding='utf8', newline='') as f:
         csvreader = csv.reader(f)
@@ -37,13 +38,22 @@ def OpenCsv(arg):
             # for d in row:
                 # print(d)
         # print(data)
-        # print(data[0]) # URL
-        # print(data[1]) # 精度
+        # print(data[0][0]) # URL
+        # print(data[1][0]) # 精度
         # print(data[2][0]) # 閲覧時のviewportの幅
         # print(data[2][1]) # 閲覧時のviewportの高さ
         # print(data[4以降][0]) # posX
         # print(data[4以降][1]) # posY
 
+    print('OpenCsv実行完了')
+
+    return data
+
+
+############################################################
+# 単体で実行する時用
+'''
+data = [] # csvデータを格納する配列
 # filename = './test.csv'
 args = sys.argv
 # print(len(args))
@@ -56,3 +66,4 @@ elif len(args) == 2:
         print('csvファイルじゃない')
 else:
     print ('引数多すぎ')
+'''
