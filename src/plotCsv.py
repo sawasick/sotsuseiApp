@@ -149,7 +149,55 @@ for i in range(data_len):
                 else:
                     # print('する〜'+str(int(data[i + 5][0]) - (accuracy // 2) + j + accuracy)+','+str(int(data[i + 5][1]) - (accuracy // 2) + k + accuracy))
                     continue
-print(plotData)
+# print(plotData)
+############################################################
+'''
+plotDataをコンソールに出力
+'''
+# tr = []
+# for i in range(len(plotData[0])):
+#     tr_row = []
+#     for vector in plotData:
+#         tr_row.append(vector[i])
+#     tr.append(tr_row)
+# for i in tr:
+    # print(i)
+############################################################
 
 # 重みを元に色の濃度を決定する
 max_weight = max(max(plotData))
+
+
+############################################################
+# ここはdrawHeartMap.pyで処理する部分
+from PIL import Image, ImageDraw
+
+def CalcFill(p):
+    '''
+    引数の値の重みを求める
+    0%   → rgb(127, 255, 0)黄緑
+    50%  → rgb(255, 255, 0)黄色
+    100% → rgb(255, 0, 0)赤
+    '''
+    weight = p / max_weight
+    if weight <= 0.5:
+        r = 127 + round(127 * weight * 2)
+        g = 255
+    else:
+        r = 255
+        g = 255 - round(255 * (weight - 0.5) * 2)
+    return r, g
+
+img = Image.new('RGBA', (5, 10)) # captureWebPage.pyから幅と高さの値持ってくる
+draw = ImageDraw.Draw(img)
+for row in range(len(plotData)):
+    for col in range(len(plotData[row])):
+        if plotData[row][col] != 0:
+            r, g = CalcFill(plotData[row][col])
+            # ▼(x, y)の重み:N%, r:255, g:255 を出力
+            # print('('+str(row)+','+str(col)+')の重み:'+str((plotData[row][col]) / max_weight * 100)+'%, r:'+str(r)+', g:'+str(g))
+            draw.point((row, col), fill = (r, g, 0))
+        else:
+            # print('するー')
+            continue
+img.save('result.png', quality=95)
