@@ -4,13 +4,13 @@ URLやキャリブレーション精度などの情報を記載(描画)する
 '''
 from PIL import Image, ImageDraw, ImageFont
 
-def CreateMargin():
+def CreateMargin(dir):
     # 画像の上側に余白をつけるためベタ画像を生成
 
     MARGIN_TOP = 220 # 余白のサイズ
 
     # 合成した画像
-    img_origin = Image.open('./dist/result.png')
+    img_origin = Image.open(dir+'/result.png')
     # 上側に余白をつけたベタ画像を生成
     img_new = Image.new("RGBA", (img_origin.width, img_origin.height + MARGIN_TOP), (240, 240, 240, 255))
     # ベタ画像の上に元の画像を重ねる
@@ -18,13 +18,13 @@ def CreateMargin():
 
     return img_new
 
-def DrawInfo(url, accuracy, duration):
+def DrawInfo(url, accuracy, duration, dir):
     print('DrawInfo実行中')
 
     # 閲覧時間(duration)の単位がミリ秒なので秒に変換
     duration = round((int(duration) / 1000), 1)
 
-    img = CreateMargin()
+    img = CreateMargin(dir)
 
     # 凡例の画像を重ねる
     img_legend = Image.open('./legend.png')
@@ -40,7 +40,7 @@ def DrawInfo(url, accuracy, duration):
     draw.text((20, 100), "閲覧時間: "+str(duration)+"秒", fill=textcolor, font=font)
     # draw.text((20, 150), "閲覧日: 2022年1月24日(月) 14:47", fill=textcolor, font=font)
 
-    img.save('./dist/result2.png', quality=95)
+    img.save(dir+'/result2.png', quality=95)
 
     print('DrawInfo実行完了')
 

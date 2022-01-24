@@ -7,7 +7,7 @@ png→jpg(現状この方法だとjpg保存しかできない)
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-def CaptureImage(url, width):
+def CaptureImage(url, width, dir):
     print('CaptureImage実行中')
 
     # CHROMEDRIVER = "./chromedriver_mac64_96_0_4664_110"
@@ -40,7 +40,7 @@ def CaptureImage(url, width):
     driver.set_window_size(w, h)
 
     # スクリーンショットを取得
-    driver.save_screenshot('./dist/capture.png')
+    driver.save_screenshot(dir+'/capture.png')
 
     driver.quit()
 

@@ -3,6 +3,9 @@ importCsv.py
 コマンドラインから引数でcsvファイルを読み込み、配列に格納する
 python main.py test.csv
 
+makeDirectory.py
+画像を出力するディレクトリを作成する
+
 captureWebPage.py
 URLからキャプチャ画像を取得
 
@@ -25,6 +28,7 @@ compressImage.py
 import sys
 
 from src import importCsv
+from src import makeDirectory
 from src import captureWebPage
 from src import plotCsv
 from src import drawHeartMap
@@ -52,12 +56,20 @@ else:
 
 
 '''
+makeDirectory.py
+画像を出力するディレクトリを作成する
+DIR_NAMEはdist配下に作成したディレクトリの名前
+'''
+DIR_NAME = makeDirectory.MakeDir(args[1])
+
+
+'''
 captureWebPage.py
 URLからキャプチャ画像を取得
 キャプチャしてくる画像の幅はdata[3][0]
 w, h は キャプチャしてきた画像のサイズ
 '''
-w, h = captureWebPage.CaptureImage(data[0][0], int(data[3][0]))
+w, h = captureWebPage.CaptureImage(data[0][0], int(data[3][0]), DIR_NAME)
 
 
 '''
@@ -73,22 +85,22 @@ drawHeartMap.py
 ヒートマップ画像を作成する
 '''
 max_weight = max(max(plotData)) # 重みの基準
-drawHeartMap.DrawHeartMap(plotData, max_weight, w, h)
+drawHeartMap.DrawHeartMap(plotData, max_weight, w, h, DIR_NAME)
 
 
 '''
 synthesizeImage.py
 キャプチャ画像とヒートマップ画像を合成する
 '''
-synthesizeImage.SynthesizeImage()
+synthesizeImage.SynthesizeImage(DIR_NAME)
 
 
 '''
 DrawInfo.py
 合成した画像にURLやキャリブレーション精度などの情報を描画
-引数はURL, キャリブレーション精度, 閲覧時間
+引数はURL, キャリブレーション精度, 閲覧時間, ディレクトリ名
 '''
-drawInfo.DrawInfo(data[0][0], data[1][0], data[2][0])
+drawInfo.DrawInfo(data[0][0], data[1][0], data[2][0], DIR_NAME)
 
 
 '''
@@ -96,7 +108,7 @@ compressImage.py
 合成した画像を圧縮する
 引数は圧縮のクオリティ.小さい値ほど圧縮を行う
 '''
-# compressImage.CompressImage(30)
+# compressImage.CompressImage(30, DIR_NAME)
 
 '''
 ログ出力

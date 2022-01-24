@@ -19,7 +19,7 @@ def CalcFill(p, max_w):
         g = 255 - round(255 * (weight - 0.5) * 2)
     return r, g
 
-def DrawHeartMap(plotData, weight, width, height):
+def DrawHeartMap(plotData, weight, width, height, dir):
     print('DrawHeartMap実行中')
 
     img = Image.new('RGBA', (width, height))
@@ -34,7 +34,7 @@ def DrawHeartMap(plotData, weight, width, height):
             else:
                 # print('値が0なのでスルー')
                 continue
-    img.save('./dist/heartmap.png', quality=95)
+    img.save(dir+'/heartmap.png', quality=95)
 
     print('DrawHeartMap実行完了')
 
