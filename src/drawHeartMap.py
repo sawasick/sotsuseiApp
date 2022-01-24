@@ -1,3 +1,6 @@
+'''
+PILを使ってプロットした重みを元にヒートマップを描画
+'''
 from PIL import Image, ImageDraw
 
 def CalcFill(p, max_w):

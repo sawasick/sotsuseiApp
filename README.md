@@ -1,7 +1,14 @@
 # sotsuseiApp
 
+[webgazer.js](https://github.com/sawasick/sotsusei)を用いた視線トラッキングのcsvデータを元にヒートマップ画像を作成するプログラム
+## Usage
+ターミナルで`pipenv shell`を実行した状態で
+``` zsh
+$ python main.py test.csv
+```
 
-## selenium
+---
+### selenium
 iMacのchromeのバージョン→ 96.0.4664.110  
 ↓chromedriverのダウンロード先  
 https://chromedriver.chromium.org/downloads
