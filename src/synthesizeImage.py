@@ -4,13 +4,13 @@ drawHeartMap.pyで生成したヒートマップ画像を重ね合わせる
 '''
 from PIL import Image
 
-def SynthesizeImage():
+def SynthesizeImage(dir):
     print('SynthesizeImage実行中')
 
     # 下側の画像(キャプチャ画像)
-    img_bottom = Image.open('./dist/capture.png')
+    img_bottom = Image.open(dir+'/capture.png')
     # 上側の画像(ヒートマップのプロット画像)
-    img_top = Image.open('./dist/heartmap.png')
+    img_top = Image.open(dir+'/heartmap.png')
 
     # キャプチャ画像をRGBAモードに変更
     img_bottom.convert("RGBA")
@@ -27,7 +27,7 @@ def SynthesizeImage():
 
     # 上と下の画像を重ねる
     img = Image.alpha_composite(img_bottom, img_top_blend)
-    img.save('./dist/result.png', quality=95)
+    img.save(dir+'/result.png', quality=95)
 
     print('SynthesizeImage実行完了')
 
