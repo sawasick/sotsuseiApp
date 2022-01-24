@@ -18,7 +18,7 @@ def CreateMargin(dir):
 
     return img_new
 
-def DrawInfo(url, accuracy, duration, dir):
+def DrawInfo(url, date, accuracy, duration, dir):
     print('DrawInfo実行中')
 
     # 閲覧時間(duration)の単位がミリ秒なので秒に変換
@@ -36,9 +36,9 @@ def DrawInfo(url, accuracy, duration, dir):
     font = ImageFont.truetype("Mplus1-Light.ttf", size=textsize) # テキストの描画の準備
 
     draw.text((20, 50), "URL: "+str(url), fill=textcolor, font=font)
+    draw.text((20, 150), "日付: "+date, fill=textcolor, font=font)
     draw.text((20, 0), "キャリブレーション精度: "+str(accuracy)+"%", fill=textcolor, font=font)
     draw.text((20, 100), "閲覧時間: "+str(duration)+"秒", fill=textcolor, font=font)
-    # draw.text((20, 150), "閲覧日: 2022年1月24日(月) 14:47", fill=textcolor, font=font)
 
     img.save(dir+'/result2.png', quality=95)
 
