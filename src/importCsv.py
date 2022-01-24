@@ -13,8 +13,8 @@ import csv
 読み込むcsvは下記の形式
 URL,
 精度,
-閲覧時のviewportの幅,閲覧時のviewportの高さ,
 閲覧時間,
+閲覧時のviewportの幅,閲覧時のviewportの高さ,
 posX,posY,
 ...
 EOF
