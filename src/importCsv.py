@@ -11,11 +11,12 @@ import csv
 
 '''
 読み込むcsvは下記の形式
-URL,
-精度,
-閲覧時間,
-閲覧時のviewportの幅,閲覧時のviewportの高さ,
-posX,posY,
+data[0][0]...URL,
+data[1][0]...日付,
+data[2][0]...精度,
+data[3][0]...閲覧時間,
+data[4][0], data[4][1]...閲覧時のviewportの幅,閲覧時のviewportの高さ,
+data[5以降][0], data[5以降][1]...posX,posY,
 ...
 EOF
 
@@ -38,12 +39,6 @@ def OpenCsv(arg):
             # for d in row:
                 # print(d)
         # print(data)
-        # print(data[0][0]) # URL
-        # print(data[1][0]) # 精度
-        # print(data[2][0]) # 閲覧時のviewportの幅
-        # print(data[2][1]) # 閲覧時のviewportの高さ
-        # print(data[4以降][0]) # posX
-        # print(data[4以降][1]) # posY
 
     print('OpenCsv実行完了')
 

@@ -66,10 +66,10 @@ DIR_NAME = makeDirectory.MakeDir(args[1])
 '''
 captureWebPage.py
 URLからキャプチャ画像を取得
-キャプチャしてくる画像の幅はdata[3][0]
+キャプチャしてくる画像の幅はdata[4][0]
 w, h は キャプチャしてきた画像のサイズ
 '''
-w, h = captureWebPage.CaptureImage(data[0][0], int(data[3][0]), DIR_NAME)
+w, h = captureWebPage.CaptureImage(data[0][0], int(data[4][0]), DIR_NAME)
 
 
 '''
@@ -98,9 +98,9 @@ synthesizeImage.SynthesizeImage(DIR_NAME)
 '''
 DrawInfo.py
 合成した画像にURLやキャリブレーション精度などの情報を描画
-引数はURL, キャリブレーション精度, 閲覧時間, ディレクトリ名
+引数はURL, 日付, キャリブレーション精度, 閲覧時間, ディレクトリ名
 '''
-drawInfo.DrawInfo(data[0][0], data[1][0], data[2][0], DIR_NAME)
+drawInfo.DrawInfo(data[0][0], data[1][0], data[2][0], data[3][0], DIR_NAME)
 
 
 '''
