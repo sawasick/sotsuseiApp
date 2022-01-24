@@ -10,7 +10,8 @@ from selenium.webdriver.chrome.options import Options
 def CaptureImage(url, width):
     print('CaptureImage実行中')
 
-    CHROMEDRIVER = "./chromedriver"
+    # CHROMEDRIVER = "./chromedriver_mac64_96_0_4664_110"
+    CHROMEDRIVER = "./chromedriver_mac64_97_0_4692_71"
     URL =  url
 
     options = Options()

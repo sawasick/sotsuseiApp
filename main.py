@@ -15,6 +15,9 @@ drawHeartMap.py
 synthesizeImage.py
 キャプチャ画像とヒートマップ画像を合成する
 
+DrawInfo.py
+合成した画像にURLやキャリブレーション精度などの情報を描画
+
 compressImage.py
 画像を圧縮する
 '''
@@ -26,6 +29,7 @@ from src import captureWebPage
 from src import plotCsv
 from src import drawHeartMap
 from src import synthesizeImage
+from src import drawInfo
 from src import compressImage
 
 data = [] # csvデータを格納する配列
@@ -77,6 +81,14 @@ synthesizeImage.py
 キャプチャ画像とヒートマップ画像を合成する
 '''
 synthesizeImage.SynthesizeImage()
+
+
+'''
+DrawInfo.py
+合成した画像にURLやキャリブレーション精度などの情報を描画
+引数はURL, キャリブレーション精度, 閲覧時間
+'''
+drawInfo.DrawInfo(data[0][0], data[1][0], data[2][0])
 
 
 '''
