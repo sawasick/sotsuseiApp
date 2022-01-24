@@ -1,3 +1,7 @@
+'''
+captureWebPage.pyで取得したキャプチャ画像と
+drawHeartMap.pyで生成したヒートマップ画像を重ね合わせる
+'''
 from PIL import Image
 
 def SynthesizeImage():

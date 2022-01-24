@@ -1,3 +1,9 @@
+'''
+seleniumでwebページのキャプチャ画像を取得する
+実行するPCにインストールされているchromeのバージョンに対応したchromedriverが必要
+詳細はREADME記載
+png→jpg(現状この方法だとjpg保存しかできない)
+'''
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
