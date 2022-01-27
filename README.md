@@ -6,6 +6,8 @@
 ``` zsh
 $ python main.py test.csv
 ```
+## version
+- 1.0　コマンドラインから実行できるアプリ実装
 
 ---
 ### selenium
