@@ -3,13 +3,13 @@ csvデータをプロットしていく(重みをつける)
 重みの付け方は画像参照→plot.png
 '''
 
-def PlotCsv(d, w, h):
+def PlotCsv(d, w, h, a):
     print('PlotCsv実行中')
 
     data = d
     width_capture = w
     height_capture = h
-    accuracy = 15 # 注視点の座標の周り何pxを範囲とするか(2以上)→plot.pngの緑の数値
+    accuracy = a # 注視点の座標の周り何pxを範囲とするか(2以上)→plot.pngの緑の数値
     plotData = [[0] * (height_capture + 1) for i in range(width_capture + 1)] # キャプチャ画像のピクセルデータ
     data_len = len(data)-5 #csvのデータ数
     #↑ +1は0,0とかも必要だから

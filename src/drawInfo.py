@@ -40,7 +40,7 @@ def DrawInfo(url, date, accuracy, duration, dir):
     draw.text((20, 0), "キャリブレーション精度: "+str(accuracy)+"%", fill=textcolor, font=font)
     draw.text((20, 100), "閲覧時間: "+str(duration)+"秒", fill=textcolor, font=font)
 
-    img.save(dir+'/result2.png', quality=95)
+    img.save(dir+'/result_info.png', quality=95)
 
     print('DrawInfo実行完了')
 

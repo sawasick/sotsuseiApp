@@ -4,17 +4,16 @@
 '''
 import os
 
-def MakeDir(name):
+def MakeDir(inputDir, outputDir):
 
     print('MakeDir実行中')
 
-    DIR_NAME = './dist/'+name[:-4] # 末尾の'.csv'を削除
-
-    # ディレクトリがない場合、作成する
-    if not os.path.exists(DIR_NAME):
+    inputDirName = os.path.splitext(os.path.basename(inputDir))[0] # 末尾の.csvを削除
+    # 出力先ディレクトリにcsvファイル名のフォルダがない場合、作成する
+    if not os.path.exists(outputDir+'/'+inputDirName):
         # print("ディレクトリを作成します")
-        os.makedirs(DIR_NAME)
+        os.makedirs(outputDir+'/'+inputDirName)
 
     print('MakeDir実行完了')
 
-    return DIR_NAME
+    return outputDir+'/'+inputDirName
