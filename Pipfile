@@ -5,8 +5,9 @@ name = "pypi"
 
 [packages]
 selenium = "==4.1.0"
+Pillow = "==9.0.0"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.9.10"
